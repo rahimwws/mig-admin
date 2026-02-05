@@ -68,7 +68,7 @@ const applySquircle = (el: HTMLElement, smoothing: number) => {
 export const CornerSmoothing = forwardRef<HTMLDivElement, CornerSmoothingProps>(
   ({ smoothing = 1, disabled = false, ...props }, ref) => {
     const localRef = useRef<HTMLDivElement>(null);
-    const mergedRef = useMemo(() => mergeRefs([localRef, ref]), [ref]);
+    const mergedRef = useMemo(() => mergeRefs(localRef, ref), [ref]);
 
     useEffect(() => {
       if (disabled) return;

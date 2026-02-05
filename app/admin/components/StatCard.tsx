@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import { cn } from '@/utils/cn';
+import * as Badge from '@/components/ui/badge';
 
 interface StatCardProps {
   title: string;
