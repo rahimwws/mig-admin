@@ -3,6 +3,7 @@
 import { RiCalendarLine, RiFilter3Line } from '@remixicon/react';
 
 import * as Avatar from '@/components/ui/avatar';
+import * as Button from '@/components/ui/button';
 import * as FancyButton from '@/components/ui/fancy-button';
 import * as Select from '@/components/ui/select';
 import Header from '@/components/header';

@@ -167,7 +167,7 @@ function NavigationMenu({ collapsed }: { collapsed: boolean }) {
 
 export default function AdminSidebar() {
   const setCommandOpen = useSetAtom(commandMenuOpenAtom);
-  const { collapsed, setCollapsed } = useSidebar();
+  const { collapsed, toggle } = useSidebar();
   const { theme, setTheme } = useTheme();
 
   return (
@@ -187,7 +187,7 @@ export default function AdminSidebar() {
           <div className='mb-3 flex items-center justify-start'>
             <button
               type='button'
-              onClick={() => setCollapsed((prev) => !prev)}
+              onClick={toggle}
               className='flex size-5 items-center justify-center rounded-lg text-text-sub-600 '
               aria-label={collapsed ? 'Развернуть меню' : 'Свернуть меню'}
             >
