@@ -1,8 +1,8 @@
 'use client';
 
 import * as React from 'react';
+import { RiMoreLine, RiLineChartLine } from '@remixicon/react';
 import { cn } from '@/utils/cn';
-import * as Badge from '@/components/ui/badge';
 
 interface StatCardProps {
   title: string;
@@ -31,40 +31,59 @@ export function StatCard({
   return (
     <div
       className={cn(
-        'relative flex flex-col gap-3 rounded-2xl border border-stroke-soft-200 bg-bg-white-0 p-5',
+        'relative flex flex-col gap-4 rounded-2xl border border-stroke-soft-200 bg-bg-white-0 p-5 shadow-regular-xs',
         className,
       )}
     >
+      {/* Header: icon + title | ellipsis */}
       <div className='flex items-start justify-between gap-3'>
-        <div className='min-w-0 flex-1'>
-          <div className='text-paragraph-sm text-text-sub-600'>{title}</div>
-          <div className='mt-2 flex flex-wrap items-center gap-2'>
-            <div className='text-[clamp(1.75rem,2.6vw,2.75rem)] leading-tight text-text-strong-950 break-words'>
-              {typeof value === 'number' ? value.toLocaleString('ru-RU') : value}
-            </div>
-            {change && (
-              <span
-                className={cn(
-                  'text-paragraph-sm',
-                  isPositive ? 'text-success-base' : 'text-error-base',
-                )}
-              >
-                {isPositive ? '+' : ''}
-                {change.value}% <span className='text-text-sub-600'>vs {change.period}</span>
-              </span>
-            )}
-          </div>
-          {subtitle && (
-            <div className='mt-1 text-paragraph-xs text-text-sub-600'>
-              {subtitle}
+        <div className='flex items-center gap-3'>
+          {Icon && (
+            <div className='flex size-10 shrink-0 items-center justify-center rounded-xl bg-primary-alpha-10'>
+              <Icon className={cn('size-5', iconColor)} />
             </div>
           )}
+          <div className='text-label-sm text-text-sub-600'>{title}</div>
         </div>
+        <button
+          type='button'
+          className='flex size-8 shrink-0 items-center justify-center rounded-lg text-text-sub-600 transition-colors hover:bg-bg-weak-50 hover:text-text-strong-950'
+          aria-label='Дополнительные действия'
+        >
+          <RiMoreLine className='size-5' />
+        </button>
+      </div>
 
-        {Icon && (
-          <div className='flex size-10 shrink-0 items-center justify-center rounded-full bg-bg-weak-50'>
-            <Icon className={cn('size-5', iconColor)} />
-          </div>
+      {/* Value */}
+      <div className='text-[clamp(1.75rem,2.5vw,2.5rem)] font-semibold leading-tight text-text-strong-950'>
+        {typeof value === 'number' ? value.toLocaleString('ru-RU') : value}
+      </div>
+
+      {/* Trend + period */}
+      <div className='flex flex-wrap items-center gap-2'>
+        {change && (
+          <span
+            className={cn(
+              'inline-flex h-7 items-center gap-1.5 rounded-lg px-2.5 text-paragraph-xs font-semibold',
+              isPositive
+                ? 'bg-success-alpha-10 text-success-base'
+                : 'bg-error-alpha-10 text-error-base',
+            )}
+          >
+            <RiLineChartLine className='size-4 shrink-0' />
+            {isPositive ? '+' : ''}
+            {change.value}%
+          </span>
+        )}
+        {change && (
+          <span className='text-paragraph-xs text-text-sub-600'>
+            {change.period}
+          </span>
+        )}
+        {subtitle && !change && (
+          <span className='text-paragraph-xs text-text-sub-600'>
+            {subtitle}
+          </span>
         )}
       </div>
     </div>
@@ -90,35 +109,53 @@ export function LargeStatCard({
   return (
     <div
       className={cn(
-        'relative flex flex-col gap-4 rounded-2xl bg-bg-white-0 p-5 shadow-regular-xs ring-1 ring-inset ring-stroke-soft-200',
+        'relative flex flex-col gap-4 rounded-2xl border border-stroke-soft-200 bg-bg-white-0 p-5 shadow-regular-xs',
         className,
       )}
     >
-      <div className='flex items-start gap-3'>
-        {Icon && (
-          <div className='flex size-12 shrink-0 items-center justify-center rounded-xl bg-bg-weak-50'>
-            <Icon className={cn('size-6', iconColor)} />
-          </div>
-        )}
-        <div className='flex-1'>
-          <div className='text-label-sm text-text-sub-600'>{title}</div>
-          <div className='mt-1 flex items-center gap-2'>
-            <div className='text-title-h3 text-text-strong-950'>
-              {typeof value === 'number' ? value.toLocaleString('ru-RU') : value}
+      <div className='flex items-start justify-between gap-3'>
+        <div className='flex items-center gap-3'>
+          {Icon && (
+            <div className='flex size-10 shrink-0 items-center justify-center rounded-xl bg-primary-alpha-10'>
+              <Icon className={cn('size-5', iconColor)} />
             </div>
-            {change && (
-              <Badge.Root
-                variant='light'
-                color={isPositive ? 'green' : 'red'}
-                size='medium'
-              >
-                {isPositive ? '+' : ''}
-                {change.value}%
-              </Badge.Root>
-            )}
-          </div>
+          )}
+          <div className='text-label-sm text-text-sub-600'>{title}</div>
         </div>
+        <button
+          type='button'
+          className='flex size-8 shrink-0 items-center justify-center rounded-lg text-text-sub-600 transition-colors hover:bg-bg-weak-50 hover:text-text-strong-950'
+          aria-label='Дополнительные действия'
+        >
+          <RiMoreLine className='size-5' />
+        </button>
       </div>
+
+      <div className='flex items-center gap-2'>
+        <div className='text-title-h3 text-text-strong-950'>
+          {typeof value === 'number' ? value.toLocaleString('ru-RU') : value}
+        </div>
+        {change && (
+          <span
+            className={cn(
+              'inline-flex h-7 items-center gap-1.5 rounded-lg px-2.5 text-paragraph-xs font-semibold',
+              isPositive
+                ? 'bg-success-alpha-10 text-success-base'
+                : 'bg-error-alpha-10 text-error-base',
+            )}
+          >
+            <RiLineChartLine className='size-4 shrink-0' />
+            {isPositive ? '+' : ''}
+            {change.value}%
+          </span>
+        )}
+      </div>
+
+      {change?.period && (
+        <div className='text-paragraph-xs text-text-sub-600'>
+          {change.period}
+        </div>
+      )}
 
       {chart && <div className='h-[100px] w-full'>{chart}</div>}
     </div>

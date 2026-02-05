@@ -11,7 +11,7 @@ import {
 
 import { cn } from '@/utils/cn';
 import { AdminHeader } from '../components';
-import * as Button from '@/components/ui/button';
+import * as FancyButton from '@/components/ui/fancy-button';
 import * as Input from '@/components/ui/input';
 import * as Switch from '@/components/ui/switch';
 import * as Divider from '@/components/ui/divider';
@@ -239,14 +239,13 @@ export default function SettingsPage() {
 
         {/* Save button */}
         <div className='flex justify-end'>
-          <Button.Root
+          <FancyButton.Root
             variant='primary'
-            mode='filled'
             size='medium'
             onClick={handleSave}
           >
             Сохранить изменения
-          </Button.Root>
+          </FancyButton.Root>
         </div>
       </div>
     </div>

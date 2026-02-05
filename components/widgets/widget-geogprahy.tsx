@@ -3,7 +3,7 @@
 import * as React from 'react';
 import dynamic from 'next/dynamic';
 
-import * as Button from '@/components/ui/button';
+import * as FancyButton from '@/components/ui/fancy-button';
 
 import 'leaflet/dist/leaflet.css';
 
@@ -138,9 +138,9 @@ export function WidgetGeography() {
             </div>
           </div>
         </div>
-        <Button.Root variant='neutral' mode='stroke' size='xxsmall'>
+        <FancyButton.Root variant='basic' size='xxsmall'>
           Details
-        </Button.Root>
+        </FancyButton.Root>
       </div>
 
       <div className='flex h-7 w-full items-center gap-[3px] rounded-lg bg-bg-white-0 px-1.5 shadow-regular-xs ring-1 ring-inset ring-stroke-soft-200'>

@@ -4,7 +4,7 @@ import * as LabelPrimitives from '@radix-ui/react-label';
 import { RiAddLine, RiBankCardLine, RiBankLine } from '@remixicon/react';
 
 import * as Badge from '@/components/ui/badge';
-import * as Button from '@/components/ui/button';
+import * as FancyButton from '@/components/ui/fancy-button';
 import * as Switch from '@/components/ui/switch';
 import { DashedDivider } from '@/components/dashed-divider';
 
@@ -21,15 +21,14 @@ export default function PaymentMethod() {
           </div>
         </div>
 
-        <Button.Root
+        <FancyButton.Root
           variant='primary'
-          mode='lighter'
           size='xsmall'
           className='rounded-10'
         >
-          <Button.Icon as={RiAddLine} />
+          <FancyButton.Icon as={RiAddLine} />
           Add Payment Method
-        </Button.Root>
+        </FancyButton.Root>
       </div>
 
       <DashedDivider />

@@ -9,7 +9,7 @@ import {
   RiUser6Line,
 } from '@remixicon/react';
 
-import * as Button from '@/components/ui/button';
+import * as FancyButton from '@/components/ui/fancy-button';
 import * as Tooltip from '@/components/ui/tooltip';
 import { CategoryBarChart } from '@/components/chart-category-bar';
 import { DashedDivider } from '@/components/dashed-divider';
@@ -48,9 +48,9 @@ export function MarketingChannels() {
             </div>
           </div>
         </div>
-        <Button.Root variant='neutral' mode='stroke' size='xxsmall'>
+        <FancyButton.Root variant='basic' size='xxsmall'>
           Details
-        </Button.Root>
+        </FancyButton.Root>
       </div>
 
       <CategoryBarChart data={channelsData} />
@@ -130,9 +130,9 @@ export function MarketingChannels() {
         </tbody>
       </table>
 
-      <Button.Root variant='neutral' mode='stroke' size='xsmall'>
+      <FancyButton.Root variant='basic' size='xsmall'>
         View reports
-      </Button.Root>
+      </FancyButton.Root>
     </div>
   );
 }
@@ -165,9 +165,9 @@ export function WidgetMarketingChannels() {
               </div>
             </div>
           </div>
-          <Button.Root variant='neutral' mode='stroke' size='xxsmall'>
+          <FancyButton.Root variant='basic' size='xxsmall'>
             Details
-          </Button.Root>
+          </FancyButton.Root>
         </div>
 
         <CategoryBarChart data={channelsData} categoryClassName='h-3' />
@@ -249,9 +249,9 @@ export function WidgetMarketingChannels() {
           </tbody>
         </table>
 
-        <Button.Root variant='neutral' mode='stroke' size='xsmall'>
+        <FancyButton.Root variant='basic' size='xsmall'>
           View reports
-        </Button.Root>
+        </FancyButton.Root>
       </div>
     </div>
   );

@@ -6,7 +6,7 @@ import { RiArrowLeftSLine, RiArrowRightSLine } from '@remixicon/react';
 
 import { cn } from '@/utils/cn';
 import { useAnimateNumber } from '@/hooks/use-animate-number';
-import * as Button from '@/components/ui/button';
+import * as FancyButton from '@/components/ui/fancy-button';
 import * as Tooltip from '@/components/ui/tooltip';
 import { ProgressChart } from '@/components/progress-chart';
 
@@ -107,9 +107,9 @@ export function ProductCategories() {
             </div>
           </div>
         </div>
-        <Button.Root variant='neutral' mode='stroke' size='xxsmall'>
+        <FancyButton.Root variant='basic' size='xxsmall'>
           Details
-        </Button.Root>
+        </FancyButton.Root>
       </div>
 
       <div className='mt-3.5'>
@@ -233,9 +233,9 @@ export function WidgetProductCategories() {
             </div>
           </div>
         </div>
-        <Button.Root variant='neutral' mode='stroke' size='xxsmall'>
+        <FancyButton.Root variant='basic' size='xxsmall'>
           Details
-        </Button.Root>
+        </FancyButton.Root>
       </div>
 
       <div className='mt-3.5'>

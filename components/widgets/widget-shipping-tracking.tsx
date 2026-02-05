@@ -12,7 +12,7 @@ import { Line, LineChart, ResponsiveContainer, XAxis, YAxis } from 'recharts';
 
 import { cn } from '@/utils/cn';
 import * as Badge from '@/components/ui/badge';
-import * as Button from '@/components/ui/button';
+import * as FancyButton from '@/components/ui/fancy-button';
 import * as Select from '@/components/ui/select';
 import * as Tooltip from '@/components/ui/tooltip';
 
@@ -119,15 +119,14 @@ export function WidgetShippingTracking() {
             defaultValue='daily'
           >
             <SelectPrimitives.Trigger asChild>
-              <Button.Root
-                variant='neutral'
-                mode='stroke'
+              <FancyButton.Root
+                variant='basic'
                 size='xxsmall'
                 className='gap-2 px-2.5'
               >
                 <Select.Value />
-                <Button.Icon as={RiArrowDownSLine} />
-              </Button.Root>
+                <FancyButton.Icon as={RiArrowDownSLine} />
+              </FancyButton.Root>
             </SelectPrimitives.Trigger>
             <Select.Content>
               <Select.Item value='daily'>Daily</Select.Item>

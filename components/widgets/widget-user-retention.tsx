@@ -3,7 +3,7 @@
 import * as React from 'react';
 
 import * as Badge from '@/components/ui/badge';
-import * as Button from '@/components/ui/button';
+import * as FancyButton from '@/components/ui/fancy-button';
 
 import IconInfoCustom from '~/icons/icon-info-custom-fill.svg';
 
@@ -66,9 +66,9 @@ export function WidgetUserRetention() {
             </Badge.Root>
           </div>
         </div>
-        <Button.Root variant='neutral' mode='stroke' size='xxsmall'>
+        <FancyButton.Root variant='basic' size='xxsmall'>
           Details
-        </Button.Root>
+        </FancyButton.Root>
       </div>
 
       <div className=''>

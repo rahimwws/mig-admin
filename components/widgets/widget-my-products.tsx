@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { RiSearch2Line } from '@remixicon/react';
 
 import { cn } from '@/utils/cn';
-import * as Button from '@/components/ui/button';
+import * as FancyButton from '@/components/ui/fancy-button';
 import * as ScrollArea from '@/components/ui/scroll-area';
 import * as Tooltip from '@/components/ui/tooltip';
 
@@ -114,9 +114,9 @@ export function WidgetMyProducts() {
             </div>
           </div>
         </div>
-        <Button.Root variant='neutral' mode='stroke' size='xxsmall' asChild>
+        <FancyButton.Root variant='basic' size='xxsmall' asChild>
           <Link href='#'>See All</Link>
-        </Button.Root>
+        </FancyButton.Root>
       </div>
 
       <div className='h-11 w-full  border-y border-stroke-soft-200 px-5'>

@@ -5,7 +5,7 @@ import * as LabelPrimitives from '@radix-ui/react-label';
 import * as SelectPrimitives from '@radix-ui/react-select';
 import { RiArrowDownSLine } from '@remixicon/react';
 
-import * as Button from '@/components/ui/button';
+import * as FancyButton from '@/components/ui/fancy-button';
 import * as Checkbox from '@/components/ui/checkbox';
 import * as Select from '@/components/ui/select';
 import { DashedDivider } from '@/components/dashed-divider';
@@ -26,15 +26,14 @@ export default function Inventory() {
         </div>
         <Select.Root defaultValue='10'>
           <SelectPrimitives.Trigger asChild>
-            <Button.Root
-              variant='neutral'
-              mode='stroke'
+            <FancyButton.Root
+              variant='basic'
               size='xsmall'
               className='rounded-10'
             >
               <Select.Value />
-              <Button.Icon as={RiArrowDownSLine} />
-            </Button.Root>
+              <FancyButton.Icon as={RiArrowDownSLine} />
+            </FancyButton.Root>
           </SelectPrimitives.Trigger>
           <Select.Content>
             <Select.Item value='0'>0 quantity</Select.Item>
@@ -56,15 +55,14 @@ export default function Inventory() {
         </div>
         <Select.Root defaultValue='0'>
           <SelectPrimitives.Trigger asChild>
-            <Button.Root
-              variant='neutral'
-              mode='stroke'
+            <FancyButton.Root
+              variant='basic'
               size='xsmall'
               className='rounded-10'
             >
               <Select.Value />
-              <Button.Icon as={RiArrowDownSLine} />
-            </Button.Root>
+              <FancyButton.Icon as={RiArrowDownSLine} />
+            </FancyButton.Root>
           </SelectPrimitives.Trigger>
           <Select.Content>
             <Select.Item value='0'>0 quantity</Select.Item>

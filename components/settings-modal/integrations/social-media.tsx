@@ -1,6 +1,6 @@
 'use client';
 
-import * as Button from '@/components/ui/button';
+import * as FancyButton from '@/components/ui/fancy-button';
 import { DashedDivider } from '@/components/dashed-divider';
 
 export default function SocialMedia() {
@@ -16,9 +16,9 @@ export default function SocialMedia() {
             Connect your Facebook account to share products and manage ads
           </div>
         </div>
-        <Button.Root variant='error' mode='stroke' size='xsmall'>
+        <FancyButton.Root variant='destructive' size='xsmall'>
           Disconnect
-        </Button.Root>
+        </FancyButton.Root>
       </div>
       <DashedDivider />
       <div className='flex flex-col justify-between gap-3.5 sm:flex-row sm:items-center'>
@@ -31,9 +31,9 @@ export default function SocialMedia() {
             Share your products and stories directly to Instagram Shopping
           </div>
         </div>
-        <Button.Root variant='error' mode='stroke' size='xsmall'>
+        <FancyButton.Root variant='destructive' size='xsmall'>
           Disconnect
-        </Button.Root>
+        </FancyButton.Root>
       </div>
       <DashedDivider />
       <div className='flex flex-col justify-between gap-3.5 sm:flex-row sm:items-center'>
@@ -46,9 +46,9 @@ export default function SocialMedia() {
             Share updates and engage with customers on X (Twitter)
           </div>
         </div>
-        <Button.Root variant='neutral' mode='stroke' size='xsmall'>
+        <FancyButton.Root variant='basic' size='xsmall'>
           Connect
-        </Button.Root>
+        </FancyButton.Root>
       </div>
       <DashedDivider />
       <div className='flex flex-col justify-between gap-3.5 sm:flex-row sm:items-center'>
@@ -61,9 +61,9 @@ export default function SocialMedia() {
             Create and manage TikTok shop listings and ad campaigns
           </div>
         </div>
-        <Button.Root variant='neutral' mode='stroke' size='xsmall'>
+        <FancyButton.Root variant='basic' size='xsmall'>
           Connect
-        </Button.Root>
+        </FancyButton.Root>
       </div>
       <DashedDivider />
       <div className='flex flex-col justify-between gap-3.5 sm:flex-row sm:items-center'>
@@ -76,9 +76,9 @@ export default function SocialMedia() {
             Enable customer messaging and order updates via WhatsApp
           </div>
         </div>
-        <Button.Root variant='neutral' mode='stroke' size='xsmall'>
+        <FancyButton.Root variant='basic' size='xsmall'>
           Connect
-        </Button.Root>
+        </FancyButton.Root>
       </div>
     </div>
   );

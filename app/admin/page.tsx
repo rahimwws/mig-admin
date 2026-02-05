@@ -30,7 +30,7 @@ import {
 
 import { cn } from '@/utils/cn';
 import { AdminHeader, StatCard, LargeStatCard } from './components';
-import * as Button from '@/components/ui/button';
+import * as FancyButton from '@/components/ui/fancy-button';
 import * as Table from '@/components/ui/table';
 
 import { stats, getStats } from './mocks/stats';
@@ -78,7 +78,7 @@ export default function AdminDashboard() {
 
       <div className='flex flex-col gap-6 p-6'>
         {/* Stats cards */}
-        <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-4'>
+        <div className='grid gap-4 sm:grid-cols-2 xl:grid-cols-4'>
           <StatCard
             title='Всего пользователей'
             value={dashboardStats.totalUsers}
@@ -123,10 +123,10 @@ export default function AdminDashboard() {
                 </div>
               </div>
               <Link href='/admin/auctions'>
-                <Button.Root variant='neutral' mode='stroke' size='xxsmall'>
+                <FancyButton.Root variant='basic' size='xxsmall'>
                   Все аукционы
-                  <Button.Icon as={RiArrowRightUpLine} />
-                </Button.Root>
+                  <FancyButton.Icon as={RiArrowRightUpLine} />
+                </FancyButton.Root>
               </Link>
             </div>
             <ResponsiveContainer width='100%' height={200}>
@@ -188,10 +188,10 @@ export default function AdminDashboard() {
                 </div>
               </div>
               <Link href='/admin/deals'>
-                <Button.Root variant='neutral' mode='stroke' size='xxsmall'>
+                <FancyButton.Root variant='basic' size='xxsmall'>
                   Все сделки
-                  <Button.Icon as={RiArrowRightUpLine} />
-                </Button.Root>
+                  <FancyButton.Icon as={RiArrowRightUpLine} />
+                </FancyButton.Root>
               </Link>
             </div>
             <ResponsiveContainer width='100%' height={200}>
@@ -300,10 +300,10 @@ export default function AdminDashboard() {
                 </div>
               </div>
               <Link href='/admin/logs'>
-                <Button.Root variant='neutral' mode='stroke' size='xxsmall'>
+                <FancyButton.Root variant='basic' size='xxsmall'>
                   Все логи
-                  <Button.Icon as={RiArrowRightUpLine} />
-                </Button.Root>
+                  <FancyButton.Icon as={RiArrowRightUpLine} />
+                </FancyButton.Root>
               </Link>
             </div>
             <div className='flex max-h-[260px] flex-col gap-3 overflow-y-auto'>

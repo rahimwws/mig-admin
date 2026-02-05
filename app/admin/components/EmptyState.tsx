@@ -4,7 +4,7 @@ import * as React from 'react';
 import { RiInboxLine } from '@remixicon/react';
 
 import { cn } from '@/utils/cn';
-import * as Button from '@/components/ui/button';
+import * as FancyButton from '@/components/ui/fancy-button';
 
 interface EmptyStateProps {
   icon?: React.ComponentType<{ className?: string }>;
@@ -41,15 +41,14 @@ export function EmptyState({
         </p>
       )}
       {action && (
-        <Button.Root
+        <FancyButton.Root
           variant='primary'
-          mode='filled'
           size='small'
           className='mt-4'
           onClick={action.onClick}
         >
           {action.label}
-        </Button.Root>
+        </FancyButton.Root>
       )}
     </div>
   );

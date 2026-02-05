@@ -6,7 +6,7 @@ import { format } from 'date-fns';
 import { Area, AreaChart, ResponsiveContainer, XAxis, YAxis } from 'recharts';
 
 import * as Badge from '@/components/ui/badge';
-import * as Button from '@/components/ui/button';
+import * as FancyButton from '@/components/ui/fancy-button';
 import * as Divider from '@/components/ui/divider';
 
 function StackedAreaChartComponent() {
@@ -138,9 +138,9 @@ export function WidgetConversionRate() {
             </Badge.Root>
           </div>
         </div>
-        <Button.Root variant='neutral' mode='stroke' size='xxsmall'>
+        <FancyButton.Root variant='basic' size='xxsmall'>
           Details
-        </Button.Root>
+        </FancyButton.Root>
       </div>
 
       <Divider.Root variant='line-spacing' />

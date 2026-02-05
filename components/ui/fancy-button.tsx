@@ -57,6 +57,10 @@ export const fancyButtonVariants = tv({
         root: 'h-8 gap-3 rounded-lg px-2.5',
         icon: '-mx-1',
       },
+      xxsmall: {
+        root: 'h-7 gap-2.5 rounded-lg px-2',
+        icon: '-mx-1',
+      },
     },
   },
   compoundVariants: [

@@ -4,7 +4,7 @@ import * as React from 'react';
 import * as DialogPrimitives from '@radix-ui/react-dialog';
 import { useSetAtom } from 'jotai';
 
-import * as Button from '@/components/ui/button';
+import * as FancyButton from '@/components/ui/fancy-button';
 import * as TabMenuHorizontal from '@/components/ui/tab-menu-horizontal';
 import { settingsModalOpenAtom } from '@/components/settings-modal';
 
@@ -27,18 +27,17 @@ export default function ShippingDelivery() {
           </DialogPrimitives.Description>
         </div>
         <div className='grid grid-cols-2 items-center gap-3 sm:flex'>
-          <Button.Root
-            variant='neutral'
-            mode='stroke'
+          <FancyButton.Root
+            variant='basic'
             size='small'
             className='rounded-10'
             onClick={() => setSettingsModalOpen(false)}
           >
             Discard
-          </Button.Root>
-          <Button.Root size='small' className='rounded-10'>
+          </FancyButton.Root>
+          <FancyButton.Root size='small' className='rounded-10'>
             Save Changes
-          </Button.Root>
+          </FancyButton.Root>
         </div>
       </div>
 

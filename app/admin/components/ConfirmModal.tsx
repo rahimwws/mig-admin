@@ -4,7 +4,7 @@ import * as React from 'react';
 import { RiAlertLine, RiDeleteBinLine, RiCheckLine } from '@remixicon/react';
 
 import * as Modal from '@/components/ui/modal';
-import * as Button from '@/components/ui/button';
+import * as FancyButton from '@/components/ui/fancy-button';
 
 interface ConfirmModalProps {
   open: boolean;
@@ -50,7 +50,7 @@ export function ConfirmModal({
   };
 
   const buttonVariants = {
-    danger: 'error' as const,
+    danger: 'destructive' as const,
     warning: 'primary' as const,
     success: 'primary' as const,
   };
@@ -62,24 +62,22 @@ export function ConfirmModal({
       <Modal.Content>
         <Modal.Header icon={Icon} title={title} description={description} />
         <Modal.Footer className='justify-end'>
-          <Button.Root
-            variant='neutral'
-            mode='stroke'
+          <FancyButton.Root
+            variant='basic'
             size='small'
             onClick={handleCancel}
             disabled={isLoading}
           >
             {cancelLabel}
-          </Button.Root>
-          <Button.Root
+          </FancyButton.Root>
+          <FancyButton.Root
             variant={buttonVariants[variant]}
-            mode='filled'
             size='small'
             onClick={handleConfirm}
             disabled={isLoading}
           >
             {isLoading ? 'Загрузка...' : confirmLabel}
-          </Button.Root>
+          </FancyButton.Root>
         </Modal.Footer>
       </Modal.Content>
     </Modal.Root>

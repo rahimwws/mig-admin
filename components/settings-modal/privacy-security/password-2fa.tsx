@@ -1,6 +1,6 @@
 'use client';
 
-import * as Button from '@/components/ui/button';
+import * as FancyButton from '@/components/ui/fancy-button';
 import { DashedDivider } from '@/components/dashed-divider';
 
 export default function Password2FA() {
@@ -15,9 +15,9 @@ export default function Password2FA() {
             Update password for enhanced account security.
           </div>
         </div>
-        <Button.Root variant='neutral' mode='stroke' size='xsmall'>
+        <FancyButton.Root variant='basic' size='xsmall'>
           Change Password
-        </Button.Root>
+        </FancyButton.Root>
       </div>
       <DashedDivider />
       <div className='flex flex-col justify-between gap-4 sm:flex-row sm:items-center sm:gap-6'>
@@ -27,9 +27,9 @@ export default function Password2FA() {
             Generate backup codes for your 2FA device.
           </div>
         </div>
-        <Button.Root variant='neutral' mode='stroke' size='xsmall'>
+        <FancyButton.Root variant='basic' size='xsmall'>
           Generate Codes
-        </Button.Root>
+        </FancyButton.Root>
       </div>
       <DashedDivider />
       <div className='flex flex-col justify-between gap-4 sm:flex-row sm:items-center sm:gap-6'>
@@ -41,9 +41,9 @@ export default function Password2FA() {
             Add an extra layer of protection to your account.
           </div>
         </div>
-        <Button.Root variant='neutral' mode='stroke' size='xsmall'>
+        <FancyButton.Root variant='basic' size='xsmall'>
           Manage Authentication
-        </Button.Root>
+        </FancyButton.Root>
       </div>
     </div>
   );

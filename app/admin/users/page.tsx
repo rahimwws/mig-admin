@@ -20,7 +20,7 @@ import {
   ConfirmModal,
   type Column,
 } from '../components';
-import * as Button from '@/components/ui/button';
+import * as FancyButton from '@/components/ui/fancy-button';
 import * as Select from '@/components/ui/select';
 import * as Avatar from '@/components/ui/avatar';
 import * as Dropdown from '@/components/ui/dropdown';
@@ -163,15 +163,15 @@ export default function UsersPage() {
       render: (user) => (
         <div className='flex items-center gap-1'>
           <Link href={`/admin/users/${user.id}`}>
-            <Button.Root variant='neutral' mode='ghost' size='xxsmall'>
-              <Button.Icon as={RiEyeLine} />
-            </Button.Root>
+            <FancyButton.Root variant='basic' size='xxsmall'>
+              <FancyButton.Icon as={RiEyeLine} />
+            </FancyButton.Root>
           </Link>
           <Dropdown.Root>
             <Dropdown.Trigger asChild>
-              <Button.Root variant='neutral' mode='ghost' size='xxsmall'>
+              <FancyButton.Root variant='basic' size='xxsmall'>
                 •••
-              </Button.Root>
+              </FancyButton.Root>
             </Dropdown.Trigger>
             <Dropdown.Content align='end'>
               <Dropdown.Group>

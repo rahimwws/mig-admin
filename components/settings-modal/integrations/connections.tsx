@@ -1,6 +1,6 @@
 'use client';
 
-import * as Button from '@/components/ui/button';
+import * as FancyButton from '@/components/ui/fancy-button';
 import { DashedDivider } from '@/components/dashed-divider';
 
 export default function Connections() {
@@ -20,9 +20,9 @@ export default function Connections() {
             Manage your online store and sync your product inventory
           </div>
         </div>
-        <Button.Root variant='neutral' mode='stroke' size='xsmall'>
+        <FancyButton.Root variant='basic' size='xsmall'>
           Manage
-        </Button.Root>
+        </FancyButton.Root>
       </div>
       <DashedDivider />
       <div className='flex flex-col justify-between gap-3.5 sm:flex-row sm:items-center'>
@@ -35,9 +35,9 @@ export default function Connections() {
             Process payments securely and manage your transactions
           </div>
         </div>
-        <Button.Root variant='neutral' mode='stroke' size='xsmall'>
+        <FancyButton.Root variant='basic' size='xsmall'>
           Manage
-        </Button.Root>
+        </FancyButton.Root>
       </div>
       <DashedDivider />
       <div className='flex flex-col justify-between gap-3.5 sm:flex-row sm:items-center'>
@@ -50,9 +50,9 @@ export default function Connections() {
             Enable secure payment options and handle transactions
           </div>
         </div>
-        <Button.Root variant='neutral' mode='stroke' size='xsmall'>
+        <FancyButton.Root variant='basic' size='xsmall'>
           Manage
-        </Button.Root>
+        </FancyButton.Root>
       </div>
       <DashedDivider />
       <div className='flex flex-col justify-between gap-3.5 sm:flex-row sm:items-center'>
@@ -69,9 +69,9 @@ export default function Connections() {
             Create email campaigns and manage customer communications
           </div>
         </div>
-        <Button.Root variant='neutral' mode='stroke' size='xsmall'>
+        <FancyButton.Root variant='basic' size='xsmall'>
           Manage
-        </Button.Root>
+        </FancyButton.Root>
       </div>
       <DashedDivider />
       <div className='flex flex-col justify-between gap-3.5 sm:flex-row sm:items-center'>
@@ -84,9 +84,9 @@ export default function Connections() {
             List and sell products on Amazon marketplace
           </div>
         </div>
-        <Button.Root variant='neutral' mode='stroke' size='xsmall'>
+        <FancyButton.Root variant='basic' size='xsmall'>
           Manage
-        </Button.Root>
+        </FancyButton.Root>
       </div>
     </div>
   );

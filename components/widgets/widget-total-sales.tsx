@@ -20,7 +20,7 @@ import {
 
 import { cn } from '@/utils/cn';
 import * as Badge from '@/components/ui/badge';
-import * as Button from '@/components/ui/button';
+import * as FancyButton from '@/components/ui/fancy-button';
 import * as ButtonGroup from '@/components/ui/button-group';
 import { weeklySalesData } from '@/app/(main)/analytics/total-sales-data';
 
@@ -39,9 +39,9 @@ export function WidgetTotalSales() {
             </Badge.Root>
           </div>
         </div>
-        <Button.Root variant='neutral' mode='stroke' size='xxsmall'>
+        <FancyButton.Root variant='basic' size='xxsmall'>
           Report
-        </Button.Root>
+        </FancyButton.Root>
       </div>
 
       <ButtonGroup.Root

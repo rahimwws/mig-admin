@@ -2,20 +2,10 @@
 
 import * as React from 'react';
 import Link from 'next/link';
-import {
-  RiLogoutBoxRLine,
-  RiSearch2Line,
-  RiMenuLine,
-  RiAuctionLine,
-} from '@remixicon/react';
-import { useSetAtom } from 'jotai';
+import { RiMenuLine, RiAuctionLine } from '@remixicon/react';
+import { usePathname } from 'next/navigation';
 
-import { cn } from '@/utils/cn';
-import * as Input from '@/components/ui/input';
-import * as Avatar from '@/components/ui/avatar';
 import * as CompactButton from '@/components/ui/compact-button';
-import * as Dropdown from '@/components/ui/dropdown';
-import { commandMenuOpenAtom } from '@/components/search';
 import AdminNotificationButton from '@/app/admin/components/AdminNotificationButton';
 
 interface AdminHeaderProps {
@@ -29,7 +19,34 @@ export default function AdminHeader({
   description,
   children,
 }: AdminHeaderProps) {
-  const setCommandOpen = useSetAtom(commandMenuOpenAtom);
+  const pathname = usePathname();
+
+  const breadcrumbLabels: Record<string, string> = {
+    admin: 'Дашборд',
+    users: 'Пользователи',
+    auctions: 'Аукционы',
+    deals: 'Сделки',
+    payouts: 'Выплаты',
+    logs: 'Логи',
+    notifications: 'Уведомления',
+    settings: 'Настройки',
+  };
+
+  const breadcrumbs = React.useMemo(() => {
+    const segments = pathname.split('/').filter(Boolean);
+    if (segments[0] !== 'admin') return [];
+
+    const items = [{ label: 'Дашборд', href: '/admin' }];
+    let href = '/admin';
+    segments.slice(1).forEach((segment) => {
+      href += `/${segment}`;
+      items.push({
+        label: breadcrumbLabels[segment] || segment,
+        href,
+      });
+    });
+    return items;
+  }, [pathname]);
 
   return (
     <header className='sticky top-0 z-30 border-b border-stroke-soft-200 bg-bg-white-0/80 backdrop-blur-xl'>
@@ -43,13 +60,6 @@ export default function AdminHeader({
         </Link>
 
         <div className='flex items-center gap-2'>
-          <CompactButton.Root
-            variant='ghost'
-            size='medium'
-            onClick={() => setCommandOpen(true)}
-          >
-            <CompactButton.Icon as={RiSearch2Line} />
-          </CompactButton.Root>
           <CompactButton.Root variant='ghost' size='medium'>
             <CompactButton.Icon as={RiMenuLine} />
           </CompactButton.Root>
@@ -61,6 +71,30 @@ export default function AdminHeader({
         <div className='flex flex-1 items-center gap-6'>
           {(title || description) && (
             <div className='flex flex-col'>
+              {breadcrumbs.length > 0 && (
+                <nav className='mb-1 flex flex-wrap items-center gap-2 text-paragraph-xs text-text-sub-600'>
+                  {breadcrumbs.map((crumb, index) => {
+                    const isLast = index === breadcrumbs.length - 1;
+                    return (
+                      <React.Fragment key={crumb.href}>
+                        {isLast ? (
+                          <span className='text-text-strong-950'>
+                            {crumb.label}
+                          </span>
+                        ) : (
+                          <Link
+                            href={crumb.href}
+                            className='hover:text-text-strong-950'
+                          >
+                            {crumb.label}
+                          </Link>
+                        )}
+                        {!isLast && <span className='text-text-soft-400'>›</span>}
+                      </React.Fragment>
+                    );
+                  })}
+                </nav>
+              )}
               {title && (
                 <h1 className='text-title-h5 text-text-strong-950'>{title}</h1>
               )}
@@ -71,57 +105,10 @@ export default function AdminHeader({
               )}
             </div>
           )}
-
-          <div className='ml-auto max-w-[320px] flex-1'>
-            <Input.Root size='small'>
-              <Input.Wrapper>
-                <Input.Icon as={RiSearch2Line} />
-                <Input.Input
-                  placeholder='Поиск (⌘/Ctrl + Q)'
-                  readOnly
-                  onFocus={() => setCommandOpen(true)}
-                  onClick={() => setCommandOpen(true)}
-                />
-              </Input.Wrapper>
-            </Input.Root>
-          </div>
         </div>
 
         <div className='flex items-center gap-3'>
           <AdminNotificationButton />
-
-          {/* User dropdown */}
-          <Dropdown.Root>
-            <Dropdown.Trigger asChild>
-              <button
-                type='button'
-                className='flex items-center gap-2 rounded-lg p-1.5 hover:bg-bg-weak-50 focus:outline-none'
-              >
-                <Avatar.Root size='40'>
-                  <Avatar.Image src='/avatars/admin.jpg' alt='Admin' />
-                  <Avatar.Indicator>
-                    <Avatar.Status status='online' />
-                  </Avatar.Indicator>
-                </Avatar.Root>
-                <div className='hidden flex-col items-start xl:flex'>
-                  <span className='text-label-sm text-text-strong-950'>
-                    Администратор
-                  </span>
-                  <span className='text-paragraph-xs text-text-sub-600'>
-                    admin@migtender.ru
-                  </span>
-                </div>
-              </button>
-            </Dropdown.Trigger>
-            <Dropdown.Content align='end' sideOffset={8}>
-              <Dropdown.Group>
-                <Dropdown.Item>
-                  <Dropdown.ItemIcon as={RiLogoutBoxRLine} />
-                  Выйти
-                </Dropdown.Item>
-              </Dropdown.Group>
-            </Dropdown.Content>
-          </Dropdown.Root>
         </div>
       </div>
 

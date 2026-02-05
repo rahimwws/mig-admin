@@ -12,7 +12,7 @@ import {
 } from '@remixicon/react';
 
 import { cn } from '@/utils/cn';
-import * as Button from '@/components/ui/button';
+import * as FancyButton from '@/components/ui/fancy-button';
 import * as Input from '@/components/ui/input';
 import * as Kbd from '@/components/ui/kbd';
 
@@ -128,9 +128,9 @@ export function RecentActivities() {
             7 new activities today
           </div>
         </div>
-        <Button.Root variant='neutral' mode='stroke' size='xxsmall'>
+        <FancyButton.Root variant='basic' size='xxsmall'>
           Details
-        </Button.Root>
+        </FancyButton.Root>
       </div>
 
       <div className='mt-4'>
@@ -242,9 +242,9 @@ export function WidgetRecentActivities() {
               7 new activities today
             </div>
           </div>
-          <Button.Root variant='neutral' mode='stroke' size='xxsmall'>
+          <FancyButton.Root variant='basic' size='xxsmall'>
             Details
-          </Button.Root>
+          </FancyButton.Root>
         </div>
 
         <ToggleGroup.Root

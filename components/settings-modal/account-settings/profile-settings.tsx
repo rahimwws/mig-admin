@@ -1,7 +1,7 @@
 'use client';
 
 import * as Avatar from '@/components/ui/avatar';
-import * as Button from '@/components/ui/button';
+import * as FancyButton from '@/components/ui/fancy-button';
 import { DashedDivider } from '@/components/dashed-divider';
 import { EditableInput } from '@/components/editable-input';
 
@@ -26,9 +26,9 @@ export default function ProfileSettings() {
               <IconRemove />
             </Avatar.Indicator>
           </Avatar.Root>
-          <Button.Root variant='neutral' mode='stroke' size='xxsmall'>
+          <FancyButton.Root variant='basic' size='xxsmall'>
             Change
-          </Button.Root>
+          </FancyButton.Root>
         </div>
       </div>
       <DashedDivider />

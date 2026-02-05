@@ -4,7 +4,7 @@ import * as React from 'react';
 import { RiArrowLeftDownLine, RiArrowRightUpLine } from '@remixicon/react';
 
 import * as Badge from '@/components/ui/badge';
-import * as Button from '@/components/ui/button';
+import * as FancyButton from '@/components/ui/fancy-button';
 import * as Divider from '@/components/ui/divider';
 
 import { DashedDividerVertical } from '../dashed-divider';
@@ -22,9 +22,9 @@ export function WidgetTotalVisitors() {
             </Badge.Root>
           </div>
         </div>
-        <Button.Root variant='neutral' mode='stroke' size='xxsmall'>
+        <FancyButton.Root variant='basic' size='xxsmall'>
           Report
-        </Button.Root>
+        </FancyButton.Root>
       </div>
 
       <Divider.Root variant='line-spacing' />

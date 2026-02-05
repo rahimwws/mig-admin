@@ -2,7 +2,7 @@
 
 import { RiAddLine } from '@remixicon/react';
 
-import * as Button from '@/components/ui/button';
+import * as FancyButton from '@/components/ui/fancy-button';
 
 import ApiSettingsTable from './api-settings-table';
 
@@ -19,15 +19,14 @@ export default function ApiSettings() {
           </div>
         </div>
 
-        <Button.Root
+        <FancyButton.Root
           variant='primary'
-          mode='lighter'
           size='xsmall'
           className='rounded-10'
         >
-          <Button.Icon as={RiAddLine} />
+          <FancyButton.Icon as={RiAddLine} />
           Generate API key
-        </Button.Root>
+        </FancyButton.Root>
       </div>
 
       <ApiSettingsTable />

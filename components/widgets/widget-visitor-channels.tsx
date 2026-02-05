@@ -3,7 +3,7 @@
 import * as React from 'react';
 
 import * as Badge from '@/components/ui/badge';
-import * as Button from '@/components/ui/button';
+import * as FancyButton from '@/components/ui/fancy-button';
 import * as Divider from '@/components/ui/divider';
 import { CategoryBarChart } from '@/components/chart-category-bar';
 
@@ -31,9 +31,9 @@ export function WidgetVisitorChannels() {
               </Badge.Root>
             </div>
           </div>
-          <Button.Root variant='neutral' mode='stroke' size='xxsmall'>
+          <FancyButton.Root variant='basic' size='xxsmall'>
             Details
-          </Button.Root>
+          </FancyButton.Root>
         </div>
 
         <CategoryBarChart
@@ -118,9 +118,9 @@ export function WidgetVisitorChannels() {
           </tbody>
         </table>
 
-        <Button.Root variant='neutral' mode='stroke' size='xsmall'>
+        <FancyButton.Root variant='basic' size='xsmall'>
           View reports
-        </Button.Root>
+        </FancyButton.Root>
       </div>
     </div>
   );

@@ -27,7 +27,7 @@ import {
   ConfirmModal,
   type Column,
 } from '../../components';
-import * as Button from '@/components/ui/button';
+import * as FancyButton from '@/components/ui/fancy-button';
 import * as Avatar from '@/components/ui/avatar';
 
 import { getAuctionById, auctions } from '../../mocks/auctions';
@@ -60,15 +60,14 @@ export default function AuctionDetailsPage() {
       <div className='flex flex-col'>
         <AdminHeader title='Аукцион не найден' />
         <div className='p-6'>
-          <Button.Root
-            variant='neutral'
-            mode='stroke'
+          <FancyButton.Root
+            variant='basic'
             size='small'
             onClick={() => router.back()}
           >
-            <Button.Icon as={RiArrowLeftLine} />
+            <FancyButton.Icon as={RiArrowLeftLine} />
             Назад
-          </Button.Root>
+          </FancyButton.Root>
         </div>
       </div>
     );
@@ -144,26 +143,24 @@ export default function AuctionDetailsPage() {
     <div className='flex flex-col'>
       <AdminHeader title={`Аукцион ${auction.id}`}>
         <div className='flex items-center gap-3'>
-          <Button.Root
-            variant='neutral'
-            mode='ghost'
+          <FancyButton.Root
+            variant='basic'
             size='small'
             onClick={() => router.back()}
           >
-            <Button.Icon as={RiArrowLeftLine} />
+            <FancyButton.Icon as={RiArrowLeftLine} />
             Назад
-          </Button.Root>
+          </FancyButton.Root>
 
           {(auction.status === 'active' || auction.status === 'scheduled') && (
-            <Button.Root
-              variant='error'
-              mode='stroke'
+            <FancyButton.Root
+              variant='destructive'
               size='small'
               onClick={() => setShowCancelModal(true)}
             >
-              <Button.Icon as={RiCloseLine} />
+              <FancyButton.Icon as={RiCloseLine} />
               Отменить аукцион
-            </Button.Root>
+            </FancyButton.Root>
           )}
         </div>
       </AdminHeader>

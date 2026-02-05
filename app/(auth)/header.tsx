@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-import * as Button from '@/components/ui/button';
+import * as FancyButton from '@/components/ui/fancy-button';
 
 type PathConfig = {
   message: string;
@@ -43,9 +43,9 @@ function DynamicContent({ pathname }: { pathname: string }) {
       <span className='text-right text-paragraph-sm text-text-sub-600'>
         {message}
       </span>
-      <Button.Root variant='primary' mode='lighter' size='xsmall' asChild>
+      <FancyButton.Root variant='primary' size='xsmall' asChild>
         <Link href={linkHref}>{linkText}</Link>
-      </Button.Root>
+      </FancyButton.Root>
     </>
   );
 }

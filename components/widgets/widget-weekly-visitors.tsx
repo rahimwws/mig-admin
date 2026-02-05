@@ -11,7 +11,7 @@ import {
 } from 'recharts';
 
 import * as Badge from '@/components/ui/badge';
-import * as Button from '@/components/ui/button';
+import * as FancyButton from '@/components/ui/fancy-button';
 import { LegendDot } from '@/components/legend-dot';
 
 const data = [
@@ -198,9 +198,9 @@ export function WidgetWeeklyVisitors() {
             </Badge.Root>
           </div>
         </div>
-        <Button.Root variant='neutral' mode='stroke' size='xxsmall'>
+        <FancyButton.Root variant='basic' size='xxsmall'>
           Details
-        </Button.Root>
+        </FancyButton.Root>
       </div>
 
       <div className='flex w-full gap-1.5 rounded-lg bg-bg-white-0 py-1.5 ring-1 ring-inset ring-stroke-soft-200'>

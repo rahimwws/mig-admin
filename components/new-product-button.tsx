@@ -4,15 +4,15 @@ import Link from 'next/link';
 import { RiAddLine } from '@remixicon/react';
 
 import { cn } from '@/utils/cn';
-import * as Button from '@/components/ui/button';
+import * as FancyButton from '@/components/ui/fancy-button';
 
 export function NewProductButton({ className }: { className?: string }) {
   return (
-    <Button.Root className={cn('rounded-xl', className)} asChild>
+    <FancyButton.Root className={cn('rounded-xl', className)} asChild>
       <Link href='/add-product'>
-        <Button.Icon as={RiAddLine} />
+        <FancyButton.Icon as={RiAddLine} />
         New Products
       </Link>
-    </Button.Root>
+    </FancyButton.Root>
   );
 }

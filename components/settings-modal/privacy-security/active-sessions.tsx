@@ -1,6 +1,6 @@
 'use client';
 
-import * as Button from '@/components/ui/button';
+import * as FancyButton from '@/components/ui/fancy-button';
 
 import SessionsTable from './sessions-table';
 
@@ -17,9 +17,9 @@ export default function ActiveSessions() {
           </div>
         </div>
 
-        <Button.Root variant='error' mode='stroke' size='xsmall'>
+        <FancyButton.Root variant='destructive' size='xsmall'>
           Log Out All Sessions
-        </Button.Root>
+        </FancyButton.Root>
       </div>
 
       <SessionsTable />

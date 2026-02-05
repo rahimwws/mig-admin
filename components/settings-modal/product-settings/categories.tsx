@@ -5,7 +5,7 @@ import * as LabelPrimitives from '@radix-ui/react-label';
 import * as SelectPrimitives from '@radix-ui/react-select';
 import { RiArrowDownSLine } from '@remixicon/react';
 
-import * as Button from '@/components/ui/button';
+import * as FancyButton from '@/components/ui/fancy-button';
 import * as Select from '@/components/ui/select';
 import * as Switch from '@/components/ui/switch';
 import { DashedDivider } from '@/components/dashed-divider';
@@ -24,15 +24,14 @@ export default function Categories() {
         </div>
         <Select.Root defaultValue='active'>
           <SelectPrimitives.Trigger asChild>
-            <Button.Root
-              variant='neutral'
-              mode='stroke'
+            <FancyButton.Root
+              variant='basic'
               size='xsmall'
               className='rounded-10'
             >
               <Select.Value />
-              <Button.Icon as={RiArrowDownSLine} />
-            </Button.Root>
+              <FancyButton.Icon as={RiArrowDownSLine} />
+            </FancyButton.Root>
           </SelectPrimitives.Trigger>
           <Select.Content>
             <Select.Item value='active'>Active</Select.Item>
@@ -53,15 +52,14 @@ export default function Categories() {
         </div>
         <Select.Root defaultValue='active'>
           <SelectPrimitives.Trigger asChild>
-            <Button.Root
-              variant='neutral'
-              mode='stroke'
+            <FancyButton.Root
+              variant='basic'
               size='xsmall'
               className='rounded-10'
             >
               <Select.Value />
-              <Button.Icon as={RiArrowDownSLine} />
-            </Button.Root>
+              <FancyButton.Icon as={RiArrowDownSLine} />
+            </FancyButton.Root>
           </SelectPrimitives.Trigger>
           <Select.Content>
             <Select.Item value='active'>Active</Select.Item>
@@ -84,15 +82,14 @@ export default function Categories() {
         </div>
         <Select.Root defaultValue='active'>
           <SelectPrimitives.Trigger asChild>
-            <Button.Root
-              variant='neutral'
-              mode='stroke'
+            <FancyButton.Root
+              variant='basic'
               size='xsmall'
               className='rounded-10'
             >
               <Select.Value />
-              <Button.Icon as={RiArrowDownSLine} />
-            </Button.Root>
+              <FancyButton.Icon as={RiArrowDownSLine} />
+            </FancyButton.Root>
           </SelectPrimitives.Trigger>
           <Select.Content>
             <Select.Item value='active'>Active</Select.Item>

@@ -19,7 +19,7 @@ import {
   DealStatusBadge,
   StatusTimeline,
 } from '../../components';
-import * as Button from '@/components/ui/button';
+import * as FancyButton from '@/components/ui/fancy-button';
 import * as Avatar from '@/components/ui/avatar';
 
 import { getDealById } from '../../mocks/deals';
@@ -49,15 +49,14 @@ export default function DealDetailsPage() {
       <div className='flex flex-col'>
         <AdminHeader title='Сделка не найдена' />
         <div className='p-6'>
-          <Button.Root
-            variant='neutral'
-            mode='stroke'
+          <FancyButton.Root
+            variant='basic'
             size='small'
             onClick={() => router.back()}
           >
-            <Button.Icon as={RiArrowLeftLine} />
+            <FancyButton.Icon as={RiArrowLeftLine} />
             Назад
-          </Button.Root>
+          </FancyButton.Root>
         </div>
       </div>
     );
@@ -66,15 +65,14 @@ export default function DealDetailsPage() {
   return (
     <div className='flex flex-col'>
       <AdminHeader title={`Сделка ${deal.id}`}>
-        <Button.Root
-          variant='neutral'
-          mode='ghost'
+        <FancyButton.Root
+          variant='basic'
           size='small'
           onClick={() => router.back()}
         >
-          <Button.Icon as={RiArrowLeftLine} />
+          <FancyButton.Icon as={RiArrowLeftLine} />
           Назад
-        </Button.Root>
+        </FancyButton.Root>
       </AdminHeader>
 
       <div className='flex flex-col gap-6 p-6'>

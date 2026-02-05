@@ -153,9 +153,11 @@ export function SearchMenu() {
 
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
-      if (e.key === 'q' && (e.metaKey || e.ctrlKey)) {
+      if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
         e.preventDefault();
-        setOpen((open) => !open);
+        e.stopPropagation();
+        if (e.repeat) return; // Игнорировать повторные нажатия (key repeat)
+        setOpen((prev) => !prev);
       }
     };
 
@@ -189,7 +191,7 @@ export function SearchMenu() {
         />
         <CommandMenu.Input placeholder='Search or jump to' />
         <Kbd.Root>
-          <IconCmd className='size-2.5' />Q
+          <IconCmd className='size-2.5' />K
         </Kbd.Root>
         <CompactButton.Root
           size='medium'

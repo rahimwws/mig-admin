@@ -18,7 +18,7 @@ import {
   ConfirmModal,
   type Column,
 } from '../components';
-import * as Button from '@/components/ui/button';
+import * as FancyButton from '@/components/ui/fancy-button';
 import * as Select from '@/components/ui/select';
 
 import { payouts, getPayoutStats } from '../mocks/payouts';
@@ -163,32 +163,30 @@ export default function PayoutsPage() {
       render: (payout) => (
         <div className='flex items-center gap-1'>
           {payout.status === 'pending' && (
-            <Button.Root
+            <FancyButton.Root
               variant='primary'
-              mode='lighter'
               size='xxsmall'
               onClick={(e) => {
                 e.stopPropagation();
                 handleAction(payout, 'processing');
               }}
             >
-              <Button.Icon as={RiRefreshLine} />
+              <FancyButton.Icon as={RiRefreshLine} />
               В обработку
-            </Button.Root>
+            </FancyButton.Root>
           )}
           {payout.status === 'processing' && (
-            <Button.Root
+            <FancyButton.Root
               variant='primary'
-              mode='filled'
               size='xxsmall'
               onClick={(e) => {
                 e.stopPropagation();
                 handleAction(payout, 'paid');
               }}
             >
-              <Button.Icon as={RiCheckLine} />
+              <FancyButton.Icon as={RiCheckLine} />
               Выплачено
-            </Button.Root>
+            </FancyButton.Root>
           )}
         </div>
       ),

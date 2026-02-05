@@ -1,6 +1,7 @@
 'use client';
 
 import * as React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import {
@@ -8,6 +9,7 @@ import {
   RiCloseLine,
   RiArrowLeftSLine,
   RiArrowRightSLine,
+  RiRefreshLine,
 } from '@remixicon/react';
 
 import { cn } from '@/utils/cn';
@@ -19,7 +21,7 @@ import {
   QuickDateRange,
   ConfirmModal,
 } from '../components';
-import * as Button from '@/components/ui/button';
+import * as FancyButton from '@/components/ui/fancy-button';
 import * as Select from '@/components/ui/select';
 import * as Dropdown from '@/components/ui/dropdown';
 import * as Input from '@/components/ui/input';
@@ -145,6 +147,17 @@ export default function AuctionsPage() {
     setCancelAuction(null);
   };
 
+  const handleResetFilters = () => {
+    setSearch('');
+    setStatusFilter('all');
+    setModeFilter('all');
+    setDateFrom('');
+    setDateTo('');
+    setCurrentPage(1);
+    setSortField('startDate');
+    setSortDirection('desc');
+  };
+
   return (
     <div className='flex flex-col'>
       <AdminHeader
@@ -217,16 +230,15 @@ export default function AuctionsPage() {
             </Select.Content>
           </Select.Root>
 
-          <Button.Root
-            variant='neutral'
-            mode='stroke'
+          <FancyButton.Root
+            variant='basic'
             size='small'
             onClick={() =>
               setSortDirection((prev) => (prev === 'asc' ? 'desc' : 'asc'))
             }
           >
             {sortDirection === 'asc' ? 'По возрастанию' : 'По убыванию'}
-          </Button.Root>
+          </FancyButton.Root>
 
           <DateRangePicker
             dateFrom={dateFrom}
@@ -234,6 +246,15 @@ export default function AuctionsPage() {
             onDateFromChange={setDateFrom}
             onDateToChange={setDateTo}
           />
+
+          <FancyButton.Root
+            variant='basic'
+            size='small'
+            onClick={handleResetFilters}
+          >
+            <FancyButton.Icon as={RiRefreshLine} />
+            Сбросить фильтры
+          </FancyButton.Root>
         </div>
 
         <QuickDateRange
@@ -249,93 +270,102 @@ export default function AuctionsPage() {
             Аукционы не найдены
           </div>
         ) : (
-          <div className='grid gap-4'>
+          <div className='grid gap-4 sm:grid-cols-2 xl:grid-cols-3'>
             {paginatedAuctions.map((auction) => (
-              <div
+              <Link
                 key={auction.id}
-                className='rounded-2xl bg-bg-white-0 p-5 shadow-regular-xs ring-1 ring-inset ring-stroke-soft-200'
+                href={`/admin/auctions/${auction.id}`}
+                className='block overflow-hidden rounded-2xl bg-bg-white-0 shadow-regular-xs ring-1 ring-inset ring-stroke-soft-200 transition-opacity hover:opacity-95'
               >
-                <div className='flex flex-wrap items-start justify-between gap-4'>
-                  <div className='space-y-1'>
-                    <div className='flex flex-wrap items-center gap-3'>
-                      <span className='font-mono text-paragraph-sm text-text-sub-600'>
-                        {auction.id}
-                      </span>
-                      <AuctionModeBadge mode={auction.mode} />
-                      <AuctionStatusBadge status={auction.status} />
-                    </div>
-                    <div className='text-label-md text-text-strong-950'>
-                      {auction.propertyTitle}
-                    </div>
-                    <div className='text-paragraph-xs text-text-sub-600'>
-                      {auction.developerName}
-                    </div>
-                  </div>
-
-                  <div className='flex items-center gap-1'>
-                    <Link href={`/admin/auctions/${auction.id}`}>
-                      <Button.Root variant='neutral' mode='ghost' size='xxsmall'>
-                        <Button.Icon as={RiEyeLine} />
-                      </Button.Root>
-                    </Link>
-                    {(auction.status === 'active' ||
-                      auction.status === 'scheduled') && (
-                      <Button.Root
-                        variant='error'
-                        mode='ghost'
-                        size='xxsmall'
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setCancelAuction(auction);
-                        }}
-                      >
-                        <Button.Icon as={RiCloseLine} />
-                      </Button.Root>
-                    )}
-                  </div>
+                <div className='relative aspect-[16/10] w-full shrink-0 bg-bg-weak-100'>
+                  <Image
+                    src='/images/villa.png'
+                    alt={auction.propertyTitle}
+                    fill
+                    className='object-cover'
+                    sizes='(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw'
+                  />
                 </div>
-
-                <div className='mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4'>
-                  <div className='rounded-lg bg-bg-weak-50 p-3'>
-                    <div className='text-paragraph-xs text-text-sub-600'>
-                      Мин. цена
-                    </div>
-                    <div className='text-label-sm text-text-strong-950'>
-                      {formatCurrency(auction.minPrice)}
-                    </div>
-                  </div>
-                  <div className='rounded-lg bg-bg-weak-50 p-3'>
-                    <div className='text-paragraph-xs text-text-sub-600'>
-                      Макс. ставка
-                    </div>
-                    <div className='text-label-sm text-text-strong-950'>
-                      {auction.currentMaxBid ? (
-                        <span className='font-medium text-success-base'>
-                          {formatCurrency(auction.currentMaxBid)}
+                <div className='flex flex-col gap-3 p-4'>
+                  <div className='flex flex-wrap items-start justify-between gap-2'>
+                    <div className='min-w-0 flex-1 space-y-1'>
+                      <div className='flex flex-wrap items-center gap-2'>
+                        <span className='font-mono text-paragraph-xs text-text-sub-600'>
+                          {auction.id}
                         </span>
-                      ) : (
-                        <span className='text-text-soft-400'>—</span>
+                        <AuctionModeBadge mode={auction.mode} />
+                        <AuctionStatusBadge status={auction.status} />
+                      </div>
+                      <div className='text-label-sm text-text-strong-950'>
+                        {auction.propertyTitle}
+                      </div>
+                      <div className='text-paragraph-xs text-text-sub-600'>
+                        {auction.developerName}
+                      </div>
+                    </div>
+                    <div className='flex shrink-0 items-center gap-1'>
+                      <span className='flex size-8 items-center justify-center text-text-sub-600' aria-hidden>
+                        <RiEyeLine className='size-4' />
+                      </span>
+                      {(auction.status === 'active' ||
+                        auction.status === 'scheduled') && (
+                        <FancyButton.Root
+                          variant='destructive'
+                          size='xxsmall'
+                          onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            setCancelAuction(auction);
+                          }}
+                        >
+                          <FancyButton.Icon as={RiCloseLine} />
+                        </FancyButton.Root>
                       )}
                     </div>
                   </div>
-                  <div className='rounded-lg bg-bg-weak-50 p-3'>
-                    <div className='text-paragraph-xs text-text-sub-600'>
-                      Начало
+
+                  <div className='grid grid-cols-2 gap-2'>
+                    <div className='rounded-lg bg-bg-weak-50 p-2'>
+                      <div className='text-paragraph-xs text-text-sub-600'>
+                        Мин. цена
+                      </div>
+                      <div className='text-label-xs text-text-strong-950'>
+                        {formatCurrency(auction.minPrice)}
+                      </div>
                     </div>
-                    <div className='text-label-sm text-text-strong-950'>
-                      {formatDateTime(auction.startDate)}
+                    <div className='rounded-lg bg-bg-weak-50 p-2'>
+                      <div className='text-paragraph-xs text-text-sub-600'>
+                        Макс. ставка
+                      </div>
+                      <div className='text-label-xs text-text-strong-950'>
+                        {auction.currentMaxBid ? (
+                          <span className='font-medium text-success-base'>
+                            {formatCurrency(auction.currentMaxBid)}
+                          </span>
+                        ) : (
+                          <span className='text-text-soft-400'>—</span>
+                        )}
+                      </div>
                     </div>
-                  </div>
-                  <div className='rounded-lg bg-bg-weak-50 p-3'>
-                    <div className='text-paragraph-xs text-text-sub-600'>
-                      Ставок
+                    <div className='rounded-lg bg-bg-weak-50 p-2'>
+                      <div className='text-paragraph-xs text-text-sub-600'>
+                        Начало
+                      </div>
+                      <div className='text-label-xs text-text-strong-950'>
+                        {formatDateTime(auction.startDate)}
+                      </div>
                     </div>
-                    <div className='text-label-sm text-text-strong-950'>
-                      {auction.bidsCount}
+                    <div className='rounded-lg bg-bg-weak-50 p-2'>
+                      <div className='text-paragraph-xs text-text-sub-600'>
+                        Ставок
+                      </div>
+                      <div className='text-label-xs text-text-strong-950'>
+                        {auction.bidsCount}
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         )}

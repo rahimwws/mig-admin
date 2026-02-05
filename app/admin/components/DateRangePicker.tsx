@@ -8,7 +8,7 @@ import { RiCalendarLine } from '@remixicon/react';
 import { cn } from '@/utils/cn';
 import * as Input from '@/components/ui/input';
 import * as Popover from '@/components/ui/popover';
-import * as Button from '@/components/ui/button';
+import * as FancyButton from '@/components/ui/fancy-button';
 
 interface DateRangePickerProps {
   dateFrom?: string;
@@ -98,15 +98,14 @@ export function QuickDateRange({ onSelect, className }: QuickDateRangeProps) {
   return (
     <div className={cn('flex flex-wrap gap-2', className)}>
       {presets.map((preset) => (
-        <Button.Root
+        <FancyButton.Root
           key={preset.label}
-          variant='neutral'
-          mode='lighter'
+          variant='basic'
           size='xxsmall'
           onClick={() => handlePreset(preset.days)}
         >
           {preset.label}
-        </Button.Root>
+        </FancyButton.Root>
       ))}
     </div>
   );

@@ -4,7 +4,7 @@ import * as React from 'react';
 import { RiAddLine } from '@remixicon/react';
 
 import * as Badge from '@/components/ui/badge';
-import * as Button from '@/components/ui/button';
+import * as FancyButton from '@/components/ui/fancy-button';
 import { DashedDivider } from '@/components/dashed-divider';
 
 export default function ShippingZones() {
@@ -20,15 +20,14 @@ export default function ShippingZones() {
           </div>
         </div>
 
-        <Button.Root
+        <FancyButton.Root
           variant='primary'
-          mode='lighter'
           size='xsmall'
           className='rounded-10'
         >
-          <Button.Icon as={RiAddLine} />
+          <FancyButton.Icon as={RiAddLine} />
           Add Zone
-        </Button.Root>
+        </FancyButton.Root>
       </div>
 
       <DashedDivider />
@@ -48,9 +47,9 @@ export default function ShippingZones() {
             </Badge.Root>
           </div>
         </div>
-        <Button.Root variant='neutral' mode='stroke' size='xsmall'>
+        <FancyButton.Root variant='basic' size='xsmall'>
           Edit Regions
-        </Button.Root>
+        </FancyButton.Root>
       </div>
 
       <DashedDivider />
@@ -70,9 +69,9 @@ export default function ShippingZones() {
             </Badge.Root>
           </div>
         </div>
-        <Button.Root variant='neutral' mode='stroke' size='xsmall'>
+        <FancyButton.Root variant='basic' size='xsmall'>
           Edit Regions
-        </Button.Root>
+        </FancyButton.Root>
       </div>
 
       <DashedDivider />
@@ -94,9 +93,9 @@ export default function ShippingZones() {
             </Badge.Root>
           </div>
         </div>
-        <Button.Root variant='neutral' mode='stroke' size='xsmall'>
+        <FancyButton.Root variant='basic' size='xsmall'>
           Edit Regions
-        </Button.Root>
+        </FancyButton.Root>
       </div>
     </div>
   );

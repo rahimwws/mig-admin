@@ -9,7 +9,7 @@ import { format, getWeek } from 'date-fns';
 
 import { cn } from '@/utils/cn';
 import * as Avatar from '@/components/ui/avatar';
-import * as Button from '@/components/ui/button';
+import * as FancyButton from '@/components/ui/fancy-button';
 import * as Divider from '@/components/ui/divider';
 import * as Select from '@/components/ui/select';
 import * as TabMenuHorizontal from '@/components/ui/tab-menu-horizontal';
@@ -130,15 +130,14 @@ export function WidgetSupportAnalytics() {
             defaultValue='daily'
           >
             <SelectPrimitives.Trigger asChild>
-              <Button.Root
-                variant='neutral'
-                mode='stroke'
+              <FancyButton.Root
+                variant='basic'
                 size='xxsmall'
                 className='gap-2 px-2.5'
               >
                 <Select.Value />
-                <Button.Icon as={RiArrowDownSLine} />
-              </Button.Root>
+                <FancyButton.Icon as={RiArrowDownSLine} />
+              </FancyButton.Root>
             </SelectPrimitives.Trigger>
             <Select.Content>
               <Select.Item value='daily'>Daily</Select.Item>

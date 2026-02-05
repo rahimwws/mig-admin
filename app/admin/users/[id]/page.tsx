@@ -27,7 +27,7 @@ import {
   ConfirmModal,
   type Column,
 } from '../../components';
-import * as Button from '@/components/ui/button';
+import * as FancyButton from '@/components/ui/fancy-button';
 import * as Avatar from '@/components/ui/avatar';
 import * as Divider from '@/components/ui/divider';
 
@@ -79,15 +79,14 @@ export default function UserDetailsPage() {
       <div className='flex flex-col'>
         <AdminHeader title='Пользователь не найден' />
         <div className='p-6'>
-          <Button.Root
-            variant='neutral'
-            mode='stroke'
+          <FancyButton.Root
+            variant='basic'
             size='small'
             onClick={() => router.back()}
           >
-            <Button.Icon as={RiArrowLeftLine} />
+            <FancyButton.Icon as={RiArrowLeftLine} />
             Назад
-          </Button.Root>
+          </FancyButton.Root>
         </div>
       </div>
     );
@@ -189,50 +188,46 @@ export default function UserDetailsPage() {
     <div className='flex flex-col'>
       <AdminHeader title='Детали пользователя'>
         <div className='flex items-center gap-3'>
-          <Button.Root
-            variant='neutral'
-            mode='ghost'
+          <FancyButton.Root
+            variant='basic'
             size='small'
             onClick={() => router.back()}
           >
-            <Button.Icon as={RiArrowLeftLine} />
+            <FancyButton.Icon as={RiArrowLeftLine} />
             Назад
-          </Button.Root>
+          </FancyButton.Root>
 
           {user.status === 'pending_verification' && (
-            <Button.Root
+            <FancyButton.Root
               variant='primary'
-              mode='filled'
               size='small'
               onClick={() => setModalAction('verify')}
             >
-              <Button.Icon as={RiCheckLine} />
+              <FancyButton.Icon as={RiCheckLine} />
               Подтвердить верификацию
-            </Button.Root>
+            </FancyButton.Root>
           )}
 
           {user.status === 'active' && (
-            <Button.Root
-              variant='error'
-              mode='stroke'
+            <FancyButton.Root
+              variant='destructive'
               size='small'
               onClick={() => setModalAction('block')}
             >
-              <Button.Icon as={RiLockLine} />
+              <FancyButton.Icon as={RiLockLine} />
               Заблокировать
-            </Button.Root>
+            </FancyButton.Root>
           )}
 
           {user.status === 'suspended' && (
-            <Button.Root
+            <FancyButton.Root
               variant='primary'
-              mode='filled'
               size='small'
               onClick={() => setModalAction('unblock')}
             >
-              <Button.Icon as={RiLockUnlockLine} />
+              <FancyButton.Icon as={RiLockUnlockLine} />
               Разблокировать
-            </Button.Root>
+            </FancyButton.Root>
           )}
         </div>
       </AdminHeader>

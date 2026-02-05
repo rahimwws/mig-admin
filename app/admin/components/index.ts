@@ -19,4 +19,5 @@ export { DataTable } from './DataTable';
 export type { Column } from './DataTable';
 export { ConfirmModal } from './ConfirmModal';
 export { DateRangePicker, QuickDateRange } from './DateRangePicker';
+export { DealsKanban } from './DealsKanban';
 export { EmptyState } from './EmptyState';

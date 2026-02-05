@@ -18,7 +18,7 @@ import {
 import { format } from 'date-fns';
 
 import { cn } from '@/utils/cn';
-import * as Button from '@/components/ui/button';
+import * as FancyButton from '@/components/ui/fancy-button';
 import * as Table from '@/components/ui/table';
 
 type Data = {
@@ -77,9 +77,9 @@ const getSortingIcon = (state: 'asc' | 'desc' | false) => {
 
 function ActionCell({ row }: { row: any }) {
   return (
-    <Button.Root variant='neutral' mode='ghost' size='xsmall'>
-      <Button.Icon as={RiMore2Line} />
-    </Button.Root>
+    <FancyButton.Root variant='basic' size='xsmall'>
+      <FancyButton.Icon as={RiMore2Line} />
+    </FancyButton.Root>
   );
 }
 
