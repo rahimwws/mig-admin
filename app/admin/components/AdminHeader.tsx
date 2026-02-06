@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation';
 
 import * as CompactButton from '@/components/ui/compact-button';
 import AdminNotificationButton from '@/app/admin/components/AdminNotificationButton';
+import { useSidebar } from './sidebar-context';
 
 interface AdminHeaderProps {
   title?: string;
@@ -20,6 +21,7 @@ export default function AdminHeader({
   children,
 }: AdminHeaderProps) {
   const pathname = usePathname();
+  const { toggleMobile } = useSidebar();
 
   const breadcrumbLabels: Record<string, string> = {
     admin: 'Дашборд',
@@ -60,7 +62,7 @@ export default function AdminHeader({
         </Link>
 
         <div className='flex items-center gap-2'>
-          <CompactButton.Root variant='ghost' size='medium'>
+          <CompactButton.Root variant='ghost' size='medium' onClick={toggleMobile}>
             <CompactButton.Icon as={RiMenuLine} />
           </CompactButton.Root>
         </div>

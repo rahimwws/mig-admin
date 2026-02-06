@@ -2,6 +2,8 @@
 export { default as AdminSidebar } from './AdminSidebar';
 export { default as AdminHeader } from './AdminHeader';
 export { StatCard, LargeStatCard } from './StatCard';
+export { FinancialStatCard } from './FinancialStatCard';
+export type { FinancialStatCardProps, SegmentItem } from './FinancialStatCard';
 export {
   StatusBadge,
   UserStatusBadge,

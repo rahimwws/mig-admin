@@ -31,7 +31,7 @@ export function StatCard({
   return (
     <div
       className={cn(
-        'relative flex flex-col gap-4 rounded-2xl border border-stroke-soft-200 bg-bg-white-0 p-5 shadow-regular-xs',
+        'relative flex flex-col gap-4 rounded-lg border border-stroke-soft-200 bg-bg-white-0 p-5 shadow-sm',
         className,
       )}
     >
@@ -59,7 +59,7 @@ export function StatCard({
         {typeof value === 'number' ? value.toLocaleString('ru-RU') : value}
       </div>
 
-      {/* Trend + period */}
+      {/* Trend + period / subtitle */}
       <div className='flex flex-wrap items-center gap-2'>
         {change && (
           <span
@@ -72,12 +72,7 @@ export function StatCard({
           >
             <RiLineChartLine className='size-4 shrink-0' />
             {isPositive ? '+' : ''}
-            {change.value}%
-          </span>
-        )}
-        {change && (
-          <span className='text-paragraph-xs text-text-sub-600'>
-            {change.period}
+            {change.value}%{change.period ? ` ${change.period}` : ''}
           </span>
         )}
         {subtitle && !change && (
@@ -109,7 +104,7 @@ export function LargeStatCard({
   return (
     <div
       className={cn(
-        'relative flex flex-col gap-4 rounded-2xl border border-stroke-soft-200 bg-bg-white-0 p-5 shadow-regular-xs',
+        'relative flex flex-col gap-4 rounded-lg border border-stroke-soft-200 bg-bg-white-0 p-5 shadow-sm',
         className,
       )}
     >
